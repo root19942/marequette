@@ -45,6 +45,11 @@ return [
             'driver' => 'token',
             'provider' => 'users',
             'hash' => false,
+        ],
+
+        'destination' => [
+            'driver' => 'session',
+            'provider' => 'destinations',
         ]
     ],
 
@@ -69,11 +74,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+       'destinations' => [
+           'driver' => 'eloquent',
+           'model' => App\Destination::class,
         ]
-    // 'users' => [
-    //     'driver' => 'database',
-    //     'table' => 'users',
-    // ],
     ],
 
     /*
@@ -97,6 +102,11 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
+        ],
+        'destinations' => [
+            'provider' => 'destinations',
+            'table' => 'password_resets',
+            'expire' => 60,
         ],
     ],
 
